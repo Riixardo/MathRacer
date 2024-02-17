@@ -1,10 +1,16 @@
 const express = require('express');
+const app = express();
+
 const cors = require('cors');
+
+const http = require('http');
+const server = http.createServer(app);
+
+const initSocket = require('./socket');
+
 const { login, signup }  = require('./controllers/loginController');
 const { loadPlayerHome }  = require('./controllers/homeController');
 const { enqueGame }  = require('./controllers/gameController');
-
-const app = express();
 
 app.use(express.json());
 
@@ -25,4 +31,6 @@ app.get('/api/home', loadPlayerHome);
 
 app.get('/api/play', enqueGame);
 
-app.listen(4000, () => {console.log("Listening on port 4000...");});
+initSocket(server);
+
+server.listen(4000, () => {console.log("Listening on port 4000...");});
