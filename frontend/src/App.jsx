@@ -3,6 +3,7 @@ import About from './pages/About'
 import Homepage from './pages/Homepage'
 import StartGame from './pages/StartGame'
 import Game from './pages/Game'
+import Login from './pages/Login'
 
 
 export default function App() {
@@ -10,7 +11,8 @@ export default function App() {
         <div>
         <BrowserRouter>
             <Routes>
-                <Route index element={<Homepage/>} />
+                <Route index element={<Login/>} />
+                <Route path='/login' element={<Login/>} />
                 <Route path='/home' element={<Homepage/>} />
                 <Route path="/about" element={<About/>} />
                 <Route path="/startgame" element={<StartGame/>}/>
