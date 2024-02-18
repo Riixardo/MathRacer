@@ -1,6 +1,8 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import About from './pages/About'
 import Homepage from './pages/Homepage'
+import StartGame from './pages/StartGame'
+import Game from './pages/Game'
 
 
 export default function App() {
@@ -11,6 +13,8 @@ export default function App() {
                 <Route index element={<Homepage/>} />
                 <Route path='/home' element={<Homepage/>} />
                 <Route path="/about" element={<About/>} />
+                <Route path="/startgame" element={<StartGame/>}/>
+                <Route path="/game" element={<Game/>}/>
                 <Route path='*' element={<Homepage/>} />
             </Routes>
         </BrowserRouter>
