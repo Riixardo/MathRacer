@@ -2,6 +2,8 @@ import '../../style.css'
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 
+// import NewButton from '../Button';
+
 import Homepage from '../../pages/Homepage';
 import About from '../../pages/About';
 
@@ -50,33 +52,31 @@ function Navbar () {
             <div className={`navbar-items ${navActive ? "active" : ""}`}>
                 <ul>
                     <li>
-                        <Link onClick={closeMenu} activeClass="navbar-active-content" spy={true} smooth={true} offset={-70} duration={500} to="HeroSection" className="navbar-content">
+                        <Link to='/home' spy="true" smooth="true" className="navbar-content">
                         Home</Link>
                     </li>
                     <li>
-                        <Link onClick={closeMenu} activeClass="navbar-active-content" spy={true} smooth={true} offset={-70} duration={500} to="MySkills" className="navbar-content">
+                        <Link to='/startgame' spy="true" smooth="true"  className="navbar-content">
                         Play Now</Link>
                     </li>
                     <li>
-                        <Link onClick={closeMenu} activeClass="navbar-active-content" spy={true} smooth={true} offset={-70} duration={500} to="MyPortfolio" className="navbar-content">
+                        <Link to='/leaderboard' spy="true" smooth="true" className="navbar-content">
                         Leaderboard</Link>
                     </li>
                     <li>
-                        <Link onClick={closeMenu} activeClass="navbar-active-content" spy={true} smooth={true} offset={-70} duration={500} to="AboutMe" className="navbar-content">
+                        <Link to='/contact' spy="true" smooth="true" className="navbar-content">
                         Contact</Link>
                     </li>
                     <li>
-                        <Link onClick={closeMenu} activeClass="navbar-active-content" spy={true} smooth={true} offset={-70} duration={500} to="AboutMe" className="navbar-content">
+                        <Link to='/login' spy="true" smooth="true" className="navbar-content">
                         Login</Link>
                     </li>
                     <li>
-                        <Link onClick={closeMenu} activeClass="navbar-active-content" spy={true} smooth={true} offset={-70} duration={500} to="AboutMe" className="navbar-content">
-                        Register</Link>
+                        <Link to='/register' spy="true" smooth="true" className="navbar-content">
+                        <button className='homepageButton'>Register</button></Link>
                     </li>
                 </ul>
             </div>
-            <Link onClick={closeMenu} activeClass="navbar-active-content" spy={true} smooth={true} offset={-70} duration={500} to="Contact" className="btn btn-outline-primary">
-            Contact Me</Link>
         </nav>
     )
 }
