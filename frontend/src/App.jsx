@@ -4,6 +4,7 @@ import Homepage from './pages/Homepage'
 import StartGame from './pages/StartGame'
 import Game from './pages/Game'
 import Login from './pages/Login'
+import Signup from './pages/Signup'
 
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
             <Routes>
                 <Route index element={<Login/>} />
                 <Route path='/login' element={<Login/>} />
+                <Route path='/signup' element={<Signup/>} />
                 <Route path='/home' element={<Homepage/>} />
                 <Route path="/about" element={<About/>} />
                 <Route path="/startgame" element={<StartGame/>}/>

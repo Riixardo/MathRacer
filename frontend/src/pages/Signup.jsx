@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {Link, useNavigate} from "react-router-dom"
 
-function Login() {
+function Signup() {
 
     const [inputs, setInputs] = useState({});
     const navigate = useNavigate();
@@ -14,7 +14,7 @@ function Login() {
 
     async function onSubmit(e) {
         e.preventDefault();
-        const response = await fetch('http://localhost:4000/api/login', {
+        const response = await fetch('http://localhost:4000/api/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', // Specify content type
@@ -30,31 +30,27 @@ function Login() {
         const data = await response.json();
         console.log('Data:', data);
 
-        if (data) {
-            let username = data.username;
-            console.log(username);
-            navigate('/home', {username});
+        if (data.success) {
+            navigate('/login');
         }
     }
 
 
     return (
         <>
-        <h1 className='center'>Login</h1>
+        <h1>Signup</h1>
 
-        <form className="login-form" onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
             <label htmlFor="username">Username</label>
             <input id="username" name="username" type="text" value={inputs.username || ""} onChange={onChanged}/>
             <label htmlFor="password"></label>
             <input id="password" name="password" type="text" value={inputs.password || ""} onChange={onChanged}/>
 
-            <input className="submit-button" type="submit" value="Submit"/>
+            <input type="submit" value="Submit"/>
         </form>
-        <div className="center">
-            <Link to='/signup'><button className="signup-Button">Signup</button></Link>
-        </div>
+        <Link to='/login'><button>Back to Login</button></Link>
         </>
     )
 }
 
-export default Login;
+export default Signup;

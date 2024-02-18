@@ -8,6 +8,7 @@ const dbname = "bank"
 
 const connect = async () => {
     try {
+        console.log("HI4");
         await client.connect();
         console.log('Connected to the %s database', dbname);
     } catch (error) {
